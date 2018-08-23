@@ -1,5 +1,7 @@
 'use strict';
 
+var dropDownMenu = document.getElementById('items')
+;
 // Cart constructor.
 var Cart = function(items) {
   // this.items is an array of CartItem instances.
@@ -55,5 +57,16 @@ function generateCatalog() {
   new Product('assets/wine-glass.jpg', 'Wine Glass');
 }
 
+function renderCatalog() {
+  for(var i = 0; i < Product.allProducts.length; i++) {
+    var optionEl = document.createElement('option');
+    optionEl.textContent = Product.allProducts[i].name;
+    dropDownMenu.appendChild(optionEl);
+  }
+};
+
+
+
 // Initialize the app by creating the big list of products with images and names
 generateCatalog();
+renderCatalog();
